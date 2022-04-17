@@ -9,4 +9,10 @@ module.exports = (app) => {
   // and POST create task
   app.route("/tasks").get(TaskController.list_all).post(TaskController.create);
 
+  // Creates a /tasks/:bindID group route
+
+  app
+    .route("/tasks/:taskId")
+    .get(TaskController.read)
+  
 };
