@@ -33,3 +33,19 @@ exports.read = (req, res) => {
   });
 };
 
+// Update task
+exports.update = (req, res) => {
+  // The diference between this method and create is
+  // that this method asks an ID to save
+  // First the mongo filter the model and then update with
+  // the fields passed into the body (JSON)
+  task.findOneAndUpdate(
+    { _id: req.params.taskId },
+    req.body,
+    { new: true },
+    (err, task) => {
+      if (err) res.send(err);
+      res.json(task);
+    }
+  );
+};
