@@ -14,5 +14,6 @@ module.exports = (app) => {
   app
     .route("/tasks/:taskId")
     .get(TaskController.read)
-  
+    .put(TaskController.update)
+    .delete(TaskController.delete);
 };
