@@ -49,3 +49,18 @@ exports.update = (req, res) => {
     }
   );
 };
+
+
+// Delete taks
+exports.delete = (req, res) => {
+  // Ask mongoose to delete Model document passing an ID,
+  // its like the read one task, but we ask for deting instead
+  task.deleteOne({ _id: req.params.taskId }, (err) => {
+    if (err) res.send(err);
+    res.json({
+      message: "task successfully deleted",
+      _id: req.params.taskId,
+    });
+  });
+};
+
