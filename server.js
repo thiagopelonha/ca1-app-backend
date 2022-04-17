@@ -27,7 +27,10 @@ const app = express();
  */
 // Cors enable us to use middlewares
 // Middlewares are functions that will pass b4 the routing function
-app.use(cors());
+var corsOptions = {
+  origin: "*"
+};
+app.use(cors(corsOptions));
 // Makes the app to only receive body as UTF-8
 // creates a new body with "HashMap" like (object with key-value pairs)
 // extended: true accept any type of data
